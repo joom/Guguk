@@ -18,18 +18,18 @@ cabal-version:       >=1.10
 
 library
   default-extensions:  OverloadedStrings
-  exposed-modules:     Guguk, Guguk.Hyphenation
+  exposed-modules:     Guguk, Guguk.Syllabification
   build-depends:       base >= 4.7 && <5,
                        text >= 1.1.1.0
   hs-source-dirs:      src
   default-language:    Haskell2010
   ghc-options: -Wall -threaded
 
-test-suite tests
+test-suite Syllabification
   default-extensions:  OverloadedStrings
   type: exitcode-stdio-1.0
   hs-source-dirs: tests
-  main-is: tests.hs
+  main-is: Syllabification.hs
   build-depends: base,
                  Guguk,
                  HUnit >= 1.2.5.0

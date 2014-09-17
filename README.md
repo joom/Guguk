@@ -7,9 +7,8 @@ Note that this is a personal pet project, heavily influenced by [zemberek-nlp](h
 
 ## Progress
 
-![Progress](http://progressed.io/bar/1)
-
-- [x] Syllabalization (in *Guguk.Hyphenation*)
+- [x] Syllabification (in *Guguk.Syllabification*) ![Progress](http://progressed.io/bar/90)
+    * Syllabification fails on words like `elektrik` and `yeşilimtrak`.
 
 ## License
 
