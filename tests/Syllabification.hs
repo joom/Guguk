@@ -33,6 +33,22 @@ tests = TestList $ map TestCase
     (syllabify "muvaffakiyetsizleştiricileştiriveremeyebileceklerimizdenmişsinizcesine")
 
     -- Troublesome words syllabification tests
+  , assertEqual "Syllabify \"tundra\""
+    ["tund", "ra"]
+    (syllabify "tundra")
+
+  , assertEqual "Syllabify \"sürpriz\""
+    ["sürp", "riz"]
+    (syllabify "sürpriz")
+
+  , assertEqual "Syllabify \"bandrol\""
+    ["band", "rol"]
+    (syllabify "bandrol")
+
+  , assertEqual "Syllabify \"program\""
+    ["prog", "ram"]
+    (syllabify "program")
+
   , assertEqual "Syllabify \"santral\""
     ["sant", "ral"]
     (syllabify "santral")
@@ -64,6 +80,5 @@ runTests = do
   _ <- runTestTT tests
   return ()
 
--- | For now, main will run our tests.
 main :: IO ()
 main = runTests
