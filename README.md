@@ -13,10 +13,12 @@ Note that this is a personal pet project, heavily influenced by the mighty [zemb
     * A usable set of functions for the existing data and types is needed.
 - [ ] Tokenization (in *Guguk.Tokenization*) ![Progress](http://progressed.io/bar/0)
     * Sentence boundary detector, and lexer are needed. Nothing has been done about this yet.
+- [ ] Turkish Alphabet (in *Guguk.TurkishAlphabet*) ![Progress](http://progressed.io/bar/1)
+    * Case conversion, vowel check, ASCIIfying, deASCIIfying functions etc. needed.
 
 ## Contribution
 
-I'm very open to any pull requests, issues or other kinds of suggestions. Feedback is especially important since I'm neither a HAskell nor Turkish NLP expert.
+I'm very open to any pull requests, issues or other kinds of suggestions. Feedback is especially important since I'm neither a Haskell nor Turkish NLP expert.
 
 ## License
 
