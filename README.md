@@ -9,8 +9,8 @@ Note that this is a personal pet project, heavily influenced by the mighty [zemb
 
 - [x] Syllabification (in *Guguk.Syllabification*) ![Progress](http://progressed.io/bar/90)
     * Syllabification fails on words like `elektrik` and `yeşilimtrak`.
-- [ ] Phonetics (in *Guguk.Morphology.Phonetics*) ![Progress](http://progressed.io/bar/10)
-    * A usable set of functions for the existing data and types is needed.
+- [ ] Phonetics (in *Guguk.Morphology.Phonetics*) ![Progress](http://progressed.io/bar/15)
+    * More usable set of functions for the existing data and types is needed.
 - [ ] Tokenization (in *Guguk.Tokenization*) ![Progress](http://progressed.io/bar/0)
     * Sentence boundary detector, and lexer are needed. Nothing has been done about this yet.
 - [ ] Turkish Alphabet (in *Guguk.TurkishAlphabet*) ![Progress](http://progressed.io/bar/1)

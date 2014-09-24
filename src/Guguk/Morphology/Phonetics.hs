@@ -4,8 +4,9 @@ module Guguk.Morphology.Phonetics
 where
 
 import qualified Data.Text as T
+import qualified Data.List as L
 
-type IPASymbol        = T.Text -- Long vowel IPA symbol = ː
+type IPASymbol        = T.Text
 type SurfaceForm      = T.Text
 
 -- Vowel types
@@ -57,12 +58,17 @@ turkishPhonemes = [
  , VowelPhoneme "a" (Vowel "a"  Open     Front Unrounded NormalLength)
  , VowelPhoneme "e" (Vowel "e"  CloseMid Front Unrounded NormalLength)
  , VowelPhoneme "e" (Vowel "ɛ"  OpenMid  Front Unrounded NormalLength)
+ , VowelPhoneme "e" (Vowel "æ"  NearOpen Front Unrounded NormalLength)
  , VowelPhoneme "ı" (Vowel "ɯ"  Close    Back  Unrounded NormalLength)
  , VowelPhoneme "i" (Vowel "i"  Close    Front Unrounded NormalLength)
  , VowelPhoneme "o" (Vowel "o"  CloseMid Back  Rounded   NormalLength)
  , VowelPhoneme "ö" (Vowel "ø"  CloseMid Front Rounded   NormalLength)
  , VowelPhoneme "u" (Vowel "u"  Close    Back  Rounded   NormalLength)
  , VowelPhoneme "ü" (Vowel "y"  Close    Front Rounded   NormalLength)
+  -- Long Vowels
+ , VowelPhoneme "â" (Vowel "aː" Open     Back  Unrounded Long)
+ , VowelPhoneme "î" (Vowel "iː" Close    Front Unrounded Long)
+ , VowelPhoneme "û" (Vowel "uː" Close    Back  Rounded   Long)
 
    -- Consonants
  , ConsonantPhoneme "b" (Consonant "b"  Voiced    Bilabial        Stop)
@@ -87,3 +93,62 @@ turkishPhonemes = [
  , ConsonantPhoneme "y" (Consonant "j"  Voiced    Palatal         Approximant)
  , ConsonantPhoneme "z" (Consonant "z"  Voiced    Alveolar        Sibilant)
  ]
+
+-- Phoneme general functions
+getSurfaceForm :: Phoneme -> SurfaceForm
+getSurfaceForm (VowelPhoneme     x _) = x
+getSurfaceForm (ConsonantPhoneme x _) = x
+
+getIPASymbol :: Phoneme -> IPASymbol
+getIPASymbol (VowelPhoneme     _ (Vowel     x _ _ _ _)) = x
+getIPASymbol (ConsonantPhoneme _ (Consonant x _ _ _  )) = x
+
+getBySurfaceForm :: SurfaceForm -> [Phoneme]
+getBySurfaceForm sf = L.filter ((== sf) . getSurfaceForm) turkishPhonemes
+
+getByIPASymbol :: IPASymbol -> Maybe Phoneme
+getByIPASymbol ipa = L.find ((== ipa) . getIPASymbol) turkishPhonemes
+
+-- Vowel specific functions
+vowelTypeError :: String
+vowelTypeError = "Cannot get vowel-specific feature of a consonant"
+
+isVowel :: Phoneme -> Bool
+isVowel (VowelPhoneme _ _) = True
+isVowel _                  = False
+
+vowelOpenness :: Phoneme -> VowelOpenness
+vowelOpenness (VowelPhoneme _ (Vowel _ x _ _ _)) = x
+vowelOpenness _ = error vowelTypeError
+
+vowelLocation :: Phoneme -> VowelLocation
+vowelLocation (VowelPhoneme _ (Vowel _ _ x _ _)) = x
+vowelLocation _ = error vowelTypeError
+
+vowelRoundedness :: Phoneme -> VowelRoundedness
+vowelRoundedness (VowelPhoneme _ (Vowel _ _ _ x _)) = x
+vowelRoundedness _ = error vowelTypeError
+
+vowelLength :: Phoneme -> VowelLength
+vowelLength (VowelPhoneme _ (Vowel _ _ _ _ x)) = x
+vowelLength _ = error vowelTypeError
+
+-- Consonant specific functions
+consonantTypeError :: String
+consonantTypeError = "Cannot get consonant-specific feature of a vowel"
+
+isConsonant :: Phoneme -> Bool
+isConsonant (ConsonantPhoneme _ _) = True
+isConsonant _                      = False
+
+consonantVoice :: Phoneme -> ConsonantVoice
+consonantVoice (ConsonantPhoneme _ (Consonant _ x _ _)) = x
+consonantVoice _ = error consonantTypeError
+
+consonantPlace :: Phoneme -> ConsonantPlace
+consonantPlace (ConsonantPhoneme _ (Consonant _ _ x _)) = x
+consonantPlace _ = error consonantTypeError
+
+consonantManner :: Phoneme -> ConsonantManner
+consonantManner (ConsonantPhoneme _ (Consonant _ _ _ x)) = x
+consonantManner _ = error consonantTypeError
