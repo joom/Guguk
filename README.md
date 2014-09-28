@@ -13,7 +13,7 @@ Note that this is a personal pet project, heavily influenced by the mighty [zemb
     * More usable set of functions for the existing data and types is needed.
 - [ ] Tokenization (in *Guguk.Tokenization*) ![Progress](http://progressed.io/bar/0)
     * Sentence boundary detector, and lexer are needed. Nothing has been done about this yet.
-- [ ] Turkish Alphabet (in *Guguk.TurkishAlphabet*) ![Progress](http://progressed.io/bar/1)
+- [ ] Turkish Alphabet (in *Guguk.TurkishAlphabet*) ![Progress](http://progressed.io/bar/10)
     * Case conversion, vowel check, ASCIIfying, deASCIIfying functions etc. needed.
 
 ## Contribution

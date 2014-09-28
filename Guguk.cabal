@@ -37,3 +37,14 @@ test-suite Syllabification
                  HUnit >= 1.2.5.0
   Default-Language: Haskell2010
   ghc-options: -Wall -threaded
+
+test-suite TurkishAlphabet
+  default-extensions:  OverloadedStrings
+  type: exitcode-stdio-1.0
+  hs-source-dirs: tests
+  main-is: TurkishAlphabet.hs
+  build-depends: base,
+                 Guguk,
+                 HUnit >= 1.2.5.0
+  Default-Language: Haskell2010
+  ghc-options: -Wall -threaded

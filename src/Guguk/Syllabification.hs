@@ -42,8 +42,8 @@ elemT c t = isJust $ T.find (==c) t
 
 -- | List of Turkish syllables of the given text.
 -- Syllables dont contain apostrophes, they are all in lower case.
--- Note that apostrophe is a definite syllable separator,
--- for words of Arabic origin which containing the sound "ع".
+-- Note that apostrophe is a definite syllable separator
+-- for words of Arabic origin which contain the sound "ع".
 syllabify :: T.Text -> [Syllable]
 syllabify s
   | T.null s = []

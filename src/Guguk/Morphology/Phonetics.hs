@@ -65,7 +65,7 @@ turkishPhonemes = [
  , VowelPhoneme "ö" (Vowel "ø"  CloseMid Front Rounded   NormalLength)
  , VowelPhoneme "u" (Vowel "u"  Close    Back  Rounded   NormalLength)
  , VowelPhoneme "ü" (Vowel "y"  Close    Front Rounded   NormalLength)
-  -- Long Vowels
+   -- Long Vowels
  , VowelPhoneme "â" (Vowel "aː" Open     Back  Unrounded Long)
  , VowelPhoneme "î" (Vowel "iː" Close    Front Unrounded Long)
  , VowelPhoneme "û" (Vowel "uː" Close    Back  Rounded   Long)
