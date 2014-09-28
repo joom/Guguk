@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Guguk.Morphology.Phonetics
+module Guguk.Phonetics
 where
 
 import qualified Data.Text as T

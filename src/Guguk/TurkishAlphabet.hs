@@ -4,7 +4,7 @@ where
 import qualified Data.Text as T
 import qualified Data.Char as C
 
-import qualified Guguk.Morphology.Phonetics as Ph
+import qualified Guguk.Phonetics as Ph
 
 alphabet :: String
 alphabet = "abcçdefgğhıijklmnoöprsştuüvyz"

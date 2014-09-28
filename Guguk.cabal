@@ -19,8 +19,8 @@ cabal-version:       >=1.10
 library
   default-extensions:  OverloadedStrings
   exposed-modules:     Guguk, Guguk.Syllabification,
-                       Guguk.Morphology.Phonetics,
-                       Guguk.TurkishAlphabet
+                       Guguk.Phonetics, Guguk.TurkishAlphabet
+                       Guguk.Morphology.Phonology
   build-depends:       base >= 4.7 && <5,
                        text >= 1.1.1.0
   hs-source-dirs:      src

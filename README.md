@@ -7,14 +7,16 @@ Note that this is a personal pet project, heavily influenced by the mighty [zemb
 
 ## Progress
 
-- [x] Syllabification (in *Guguk.Syllabification*) ![Progress](http://progressed.io/bar/90)
+- [x] Syllabification (in [Guguk.Syllabification](src/Guguk/Syllabification.hs)) ![Progress](http://progressed.io/bar/90)
     * Syllabification fails on words like `elektrik` and `yeşilimtrak`.
-- [ ] Phonetics (in *Guguk.Morphology.Phonetics*) ![Progress](http://progressed.io/bar/15)
+- [ ] Phonetics (in [Guguk.Phonetics](src/Guguk/Phonetics.hs)) ![Progress](http://progressed.io/bar/20)
     * More usable set of functions for the existing data and types is needed.
-- [ ] Tokenization (in *Guguk.Tokenization*) ![Progress](http://progressed.io/bar/0)
-    * Sentence boundary detector, and lexer are needed. Nothing has been done about this yet.
-- [ ] Turkish Alphabet (in *Guguk.TurkishAlphabet*) ![Progress](http://progressed.io/bar/10)
+- [ ] Turkish Alphabet (in [Guguk.TurkishAlphabet](src/Guguk/TurkishAlphabet.hs)) ![Progress](http://progressed.io/bar/10)
     * Case conversion, vowel check, ASCIIfying, deASCIIfying functions etc. needed.
+- [ ] Phonology (in [Guguk.Morphology.Phonology](src/Guguk/Morphology/Phonology.hs)) ![Progress](http://progressed.io/bar/1)
+    * More usable set of functions for Turkish phonology and morphotactical rules.
+- [ ] Tokenization (planned to be in *Guguk.Tokenization*) ![Progress](http://progressed.io/bar/0)
+    * Sentence boundary detector, and lexer are needed. Nothing has been done about this yet.
 
 ## Contribution
 
