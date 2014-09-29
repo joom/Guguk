@@ -51,7 +51,7 @@ tests = TestList $ map TestCase
     (lastConsonantAlteration "çocuk" "u")
   , assertEqual "lastConsonantAlteration \"çocuk\" \"lu\""
     ("çocuk","lu") -- alteration doesn't happen because 'l' is not a vowel
-    (lastConsonantAlteration "çocuğ" "u")
+    (lastConsonantAlteration "çocuk" "lu")
   , assertEqual "lastConsonantAlteration \"sac\" \"ı\""
     ("sac","ı")    -- alteration doesn't happen because 'c' is not a stop consonant
     (lastConsonantAlteration "sac" "ı")

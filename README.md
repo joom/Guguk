@@ -13,7 +13,7 @@ Note that this is a personal pet project, heavily influenced by the mighty [zemb
     * More usable set of functions for the existing data and types is needed.
 - [ ] Turkish Alphabet (in [Guguk.TurkishAlphabet](src/Guguk/TurkishAlphabet.hs)) ![Progress](http://progressed.io/bar/10)
     * Case conversion, vowel check, ASCIIfying, deASCIIfying functions etc. needed.
-- [ ] Phonology (in [Guguk.Morphology.Phonology](src/Guguk/Morphology/Phonology.hs)) ![Progress](http://progressed.io/bar/5)
+- [ ] Phonology (in [Guguk.Morphology.Phonology](src/Guguk/Morphology/Phonology.hs)) ![Progress](http://progressed.io/bar/10)
     * More usable set of functions for Turkish phonology and morphotactical rules.
 - [ ] Tokenization (planned to be in *Guguk.Tokenization*) ![Progress](http://progressed.io/bar/0)
     * Sentence boundary detector, and lexer are needed. Nothing has been done about this yet.
