@@ -1,4 +1,4 @@
-Guguk
+Guguk [![Build Status](https://secure.travis-ci.org/joom/Guguk.png)](http://travis-ci.org/joom/Guguk)
 =====
 
 Turkish NLP library for Haskell. (Name should be pronounced like *"goo gook"*.)
