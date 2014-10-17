@@ -1,4 +1,4 @@
-Guguk [![Build Status](https://secure.travis-ci.org/joom/Guguk.png)](http://travis-ci.org/joom/Guguk)
+Guguk [![Build Status](https://secure.travis-ci.org/joom/Guguk.svg)](http://travis-ci.org/joom/Guguk)
 =====
 
 Turkish NLP library for Haskell. (Name should be pronounced like *"goo gook"*.)
@@ -7,9 +7,9 @@ Note that this is a personal pet project, heavily influenced by the mighty [zemb
 
 ## Progress
 
-- [x] Syllabification (in [Guguk.Syllabification](src/Guguk/Syllabification.hs)) ![Progress](http://progressed.io/bar/90)
-    * Syllabification fails on words like `elektrik` and `yeşilimtrak`.
-- [ ] Phonetics (in [Guguk.Phonetics](src/Guguk/Phonetics.hs)) ![Progress](http://progressed.io/bar/20)
+- [x] Syllabification (in [Guguk.Syllabification](src/Guguk/Syllabification.hs)) ![Progress](http://progressed.io/bar/95)
+    * Passes all the tests. The `syllabify` function can be refactored, the guard usage prevented better pattern matching.
+- [x] Phonetics (in [Guguk.Phonetics](src/Guguk/Phonetics.hs)) ![Progress](http://progressed.io/bar/20)
     * More usable set of functions for the existing data and types is needed.
 - [ ] Turkish Alphabet (in [Guguk.TurkishAlphabet](src/Guguk/TurkishAlphabet.hs)) ![Progress](http://progressed.io/bar/10)
     * Case conversion, vowel check, ASCIIfying, deASCIIfying functions etc. needed.

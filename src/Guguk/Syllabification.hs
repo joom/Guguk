@@ -33,31 +33,30 @@ elemT c t = isJust $ T.find (==c) t
 -- for words of Arabic origin which contain the sound "ع".
 syllabify :: T.Text -> [Syllable]
 syllabify s
+  -- Base case
   | T.null s = []
-  | '\'' `elemT` T.tail s =
-    concatMap syllabify
-    [T.takeWhile (/='\'') s, T.tail $ T.dropWhile (/='\'') s]
+  -- Split on apostrophes
+  | '\'' `elemT` T.tail s = concatMap syllabify (T.splitOn "'" s)
+  -- Return the same if there is no vowel
   | isNothing firstVowelIndex = [xs]
 
-  | any isNothing [afterVowel 1] = [xs]
-  | Alph.isVowel(fromJust $ afterVowel 1) =
-      substring 0 (fVI + 1) xs : syllabify(substring (fVI + 1) len xs)
+  | isNothing (afterVowel 1) = [xs]
+  | Alph.isVowel(fromJust $ afterVowel 1) = handleSubstring 1
 
-  | any isNothing [afterVowel 2] = [xs]
-  | Alph.isVowel(fromJust $ afterVowel 2) =
-      substring 0 (fVI + 1) xs : syllabify(substring (fVI + 1) len xs)
+  | isNothing (afterVowel 2) = [xs]
+  | Alph.isVowel(fromJust $ afterVowel 2) = handleSubstring 1
 
-  | any isNothing [afterVowel 3] = [xs]
-  | Alph.isVowel(fromJust $ afterVowel 3) =
-      substring 0 (fVI + 2) xs : syllabify(substring (fVI + 2) len xs)
+  | isNothing (afterVowel 3) = [xs]
+  | Alph.isVowel(fromJust $ afterVowel 3) = handleSubstring 2
 
-  | lastPart `elem` ["str", "ktr", "ntr", "nsp"] =
-      substring 0 (fVI + 2) xs : syllabify(substring (fVI + 2) len xs)
-  | otherwise =
-      substring 0 (fVI + 3) xs : syllabify(substring (fVI + 3) len xs)
+  | lastPart `elem` exceptions = handleSubstring 2
+  | otherwise = handleSubstring 3
   where xs = (T.filter isAlpha . T.map toLower) s
         firstVowelIndex = T.findIndex Alph.isVowel xs
         fVI = fromJust firstVowelIndex
         len = T.length xs
-        lastPart = substring (len + 1) (len + 4) xs
+        lastPart = substring 2 5 xs
+        exceptions = ["str", "ktr", "mtr", "nsp"]
         afterVowel i = fromJust $ fmap (charAt xs . (+i)) firstVowelIndex
+        handleSubstring n =
+          substring 0 (fVI + n) xs : syllabify(substring (fVI + n) len xs)

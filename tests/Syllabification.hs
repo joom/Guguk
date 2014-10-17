@@ -33,6 +33,14 @@ tests = TestList $ map TestCase
     (syllabify "muvaffakiyetsizleştiricileştiriveremeyebileceklerimizdenmişsinizcesine")
 
     -- Troublesome words syllabification tests
+  , assertEqual "Syllabify \"arktik\""
+    ["ark", "tik"]
+    (syllabify "arktik")
+
+  , assertEqual "Syllabify \"kontratak\""
+    ["kont","ra","tak"]
+    (syllabify "kontratak")
+
   , assertEqual "Syllabify \"tundra\""
     ["tund", "ra"]
     (syllabify "tundra")
