@@ -2,9 +2,9 @@
 --  see http://haskell.org/cabal/users-guide/
 
 name:                Guguk
-version:             0.1.0.0
+version:             0.0.0.1
 synopsis:            NLP library for Turkish
--- description:
+description:         NLP library for Turkish
 homepage:            http://github.com/joom/Guguk
 license:             MIT
 license-file:        LICENSE

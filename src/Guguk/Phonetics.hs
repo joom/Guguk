@@ -30,9 +30,11 @@ data Vowel            = Vowel IPASymbol VowelOpenness
 
 -- Consonant types
 
+-- | AlveolarLateralV means Velarized AlveolarLateral.
 data ConsonantPlace   = Labial | Bilabial | Dental | Labiodental |
                         Alveolar | PostAlveolar | PalatoAlveolar |
-                        Palatal | Velar | Glottal | AlveolarLateral
+                        AlveolarLateral | AlveolarLateralV |
+                        Palatal | Velar | Glottal
                         deriving (Show, Eq)
 
 data ConsonantManner  = Nasal | Stop | Affricate | Fricative |
@@ -42,7 +44,8 @@ data ConsonantManner  = Nasal | Stop | Affricate | Fricative |
 data ConsonantVoice   = Voiced | Voiceless
                         deriving (Show, Eq)
 
-data Consonant        = Consonant IPASymbol ConsonantVoice ConsonantPlace ConsonantManner
+data Consonant        = Consonant IPASymbol ConsonantVoice
+                          ConsonantPlace ConsonantManner
                         deriving (Show, Eq)
 
 -- Phoneme types
@@ -71,27 +74,30 @@ turkishPhonemes = [
  , VowelPhoneme "û" (Vowel "uː" Close    Back  Rounded   Long)
 
    -- Consonants
- , ConsonantPhoneme "b" (Consonant "b"  Voiced    Bilabial        Stop)
- , ConsonantPhoneme "c" (Consonant "d͡ʒ" Voiced    PalatoAlveolar  Affricate)
- , ConsonantPhoneme "ç" (Consonant "t͡ʃ" Voiceless PalatoAlveolar  Affricate)
- , ConsonantPhoneme "d" (Consonant "d̪"  Voiced    Dental          Stop)
- , ConsonantPhoneme "f" (Consonant "f"  Voiceless Labiodental     Fricative)
- , ConsonantPhoneme "g" (Consonant "ɡ"  Voiced    Velar           Stop)
- , ConsonantPhoneme "ğ" (Consonant "ɣ"  Voiced    Velar           Fricative)
- , ConsonantPhoneme "h" (Consonant "h"  Voiceless Glottal         Fricative)
- , ConsonantPhoneme "j" (Consonant "ʒ"  Voiced    PalatoAlveolar  Sibilant)
- , ConsonantPhoneme "k" (Consonant "k"  Voiceless Velar           Stop)
- , ConsonantPhoneme "l" (Consonant "l"  Voiced    AlveolarLateral Approximant)
- , ConsonantPhoneme "m" (Consonant "m"  Voiced    Bilabial        Nasal)
- , ConsonantPhoneme "n" (Consonant "n"  Voiced    Alveolar        Nasal)
- , ConsonantPhoneme "p" (Consonant "p"  Voiceless Bilabial        Stop)
- , ConsonantPhoneme "r" (Consonant "ɾ"  Voiced    Alveolar        Flap)
- , ConsonantPhoneme "s" (Consonant "s"  Voiceless Alveolar        Fricative)
- , ConsonantPhoneme "ş" (Consonant "ʃ"  Voiceless PalatoAlveolar  Fricative)
- , ConsonantPhoneme "t" (Consonant "t̪"  Voiceless Dental          Stop)
- , ConsonantPhoneme "v" (Consonant "v"  Voiced    Labiodental     Fricative)
- , ConsonantPhoneme "y" (Consonant "j"  Voiced    Palatal         Approximant)
- , ConsonantPhoneme "z" (Consonant "z"  Voiced    Alveolar        Sibilant)
+ , ConsonantPhoneme "b" (Consonant "b"  Voiced    Bilabial          Stop)
+ , ConsonantPhoneme "c" (Consonant "d͡ʒ" Voiced    PalatoAlveolar    Affricate)
+ , ConsonantPhoneme "ç" (Consonant "t͡ʃ" Voiceless PalatoAlveolar    Affricate)
+ , ConsonantPhoneme "d" (Consonant "d̪"  Voiced    Dental            Stop)
+ , ConsonantPhoneme "f" (Consonant "f"  Voiceless Labiodental       Fricative)
+ , ConsonantPhoneme "g" (Consonant "ɡ"  Voiced    Velar             Stop)
+ , ConsonantPhoneme "g" (Consonant "ɟ"  Voiced    Palatal           Stop)
+ , ConsonantPhoneme "ğ" (Consonant "ɣ"  Voiced    Velar             Fricative)
+ , ConsonantPhoneme "h" (Consonant "h"  Voiceless Glottal           Fricative)
+ , ConsonantPhoneme "j" (Consonant "ʒ"  Voiced    PalatoAlveolar    Sibilant)
+ , ConsonantPhoneme "k" (Consonant "k"  Voiceless Velar             Stop)
+ , ConsonantPhoneme "k" (Consonant "c"  Voiceless Palatal           Stop)
+ , ConsonantPhoneme "l" (Consonant "l"  Voiced    AlveolarLateral   Approximant)
+ , ConsonantPhoneme "l" (Consonant "ɫ"  Voiced    AlveolarLateralV  Approximant)
+ , ConsonantPhoneme "m" (Consonant "m"  Voiced    Bilabial          Nasal)
+ , ConsonantPhoneme "n" (Consonant "n"  Voiced    Alveolar          Nasal)
+ , ConsonantPhoneme "p" (Consonant "p"  Voiceless Bilabial          Stop)
+ , ConsonantPhoneme "r" (Consonant "ɾ"  Voiced    Alveolar          Flap)
+ , ConsonantPhoneme "s" (Consonant "s"  Voiceless Alveolar          Fricative)
+ , ConsonantPhoneme "ş" (Consonant "ʃ"  Voiceless PalatoAlveolar    Fricative)
+ , ConsonantPhoneme "t" (Consonant "t̪"  Voiceless Dental            Stop)
+ , ConsonantPhoneme "v" (Consonant "v"  Voiced    Labiodental       Fricative)
+ , ConsonantPhoneme "y" (Consonant "j"  Voiced    Palatal           Approximant)
+ , ConsonantPhoneme "z" (Consonant "z"  Voiced    Alveolar          Sibilant)
  ]
 
 -- Phoneme general functions
