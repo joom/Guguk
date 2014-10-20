@@ -1,4 +1,4 @@
-module Main where
+module Tests.Syllabification where
 
 import Guguk.Syllabification
 import Test.HUnit
@@ -82,11 +82,3 @@ tests = TestList $ map TestCase
     ["müf","te","i","lün"]
     (syllabify "müfte'ilün")
   ]
-
-runTests ::  IO ()
-runTests = do
-  _ <- runTestTT tests
-  return ()
-
-main :: IO ()
-main = runTests

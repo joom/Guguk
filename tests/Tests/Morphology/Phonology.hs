@@ -1,4 +1,4 @@
-module Main where
+module Tests.Morphology.Phonology where
 
 import Guguk.Morphology.Phonology
 import Test.HUnit
@@ -56,11 +56,3 @@ tests = TestList $ map TestCase
     ("sac","ı")    -- alteration doesn't happen because 'c' is not a stop consonant
     (lastConsonantAlteration "sac" "ı")
   ]
-
-runTests ::  IO ()
-runTests = do
-  _ <- runTestTT tests
-  return ()
-
-main :: IO ()
-main = runTests

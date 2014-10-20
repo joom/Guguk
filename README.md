@@ -11,12 +11,12 @@ Note that this is a personal pet project, heavily influenced by the mighty [zemb
     * Passes all the tests. The `syllabify` function can be refactored, the guard usage prevented better pattern matching.
 - [x] Phonetics (in [Guguk.Phonetics](src/Guguk/Phonetics.hs)) ![Progress](http://progressed.io/bar/20)
     * More usable set of functions for the existing data and types is needed.
-- [ ] Turkish Alphabet (in [Guguk.TurkishAlphabet](src/Guguk/TurkishAlphabet.hs)) ![Progress](http://progressed.io/bar/10)
+- [x] Turkish Alphabet (in [Guguk.TurkishAlphabet](src/Guguk/TurkishAlphabet.hs)) ![Progress](http://progressed.io/bar/10)
     * Case conversion, vowel check, ASCIIfying, deASCIIfying functions etc. needed.
 - [ ] Phonology (in [Guguk.Morphology.Phonology](src/Guguk/Morphology/Phonology.hs)) ![Progress](http://progressed.io/bar/10)
     * More usable set of functions for Turkish phonology and morphotactical rules.
-- [ ] Tokenization (planned to be in *Guguk.Tokenization*) ![Progress](http://progressed.io/bar/0)
-    * Sentence boundary detector, and lexer are needed. Nothing has been done about this yet.
+- [ ] Tokenization ([Guguk.Tokenization](src/Guguk/Tokenization)) ![Progress](http://progressed.io/bar/5)
+    * [Sentence boundary detector](src/Guguk/Tokenization/SentenceBoundary.hs) started, basic functionality exists but some tests fail and there are certain things to do. (e.g. Turkish dictionary of abbreviations) Lexer needed.
 
 ## Contribution
 

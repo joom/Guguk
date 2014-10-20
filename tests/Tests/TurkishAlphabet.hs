@@ -1,4 +1,4 @@
-module Main where
+module Tests.TurkishAlphabet where
 
 import Guguk.TurkishAlphabet
 import Test.HUnit
@@ -29,11 +29,3 @@ tests = TestList $ map TestCase
   , assertEqual "isLongVowel 'e'" False (isLongVowel 'e')
   , assertEqual "isLongVowel 'g'" False (isLongVowel 'g')
   ]
-
-runTests ::  IO ()
-runTests = do
-  _ <- runTestTT tests
-  return ()
-
-main :: IO ()
-main = runTests
