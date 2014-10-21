@@ -15,8 +15,9 @@ Note that this is a personal pet project, heavily influenced by the mighty [zemb
     * Case conversion, vowel check, ASCIIfying, deASCIIfying functions etc. needed.
 - [ ] Phonology (in [Guguk.Morphology.Phonology](src/Guguk/Morphology/Phonology.hs)) ![Progress](http://progressed.io/bar/10)
     * More usable set of functions for Turkish phonology and morphotactical rules.
-- [ ] Tokenization ([Guguk.Tokenization](src/Guguk/Tokenization)) ![Progress](http://progressed.io/bar/5)
-    * [Sentence boundary detector](src/Guguk/Tokenization/SentenceBoundary.hs) started, basic functionality exists but some tests fail and there are certain things to do. (e.g. Turkish dictionary of abbreviations) Lexer needed.
+- [ ] Tokenization ([Guguk.Tokenization](src/Guguk/Tokenization)) ![Progress](http://progressed.io/bar/7)
+    * Basic functionality for [Sentence boundary detector](src/Guguk/Tokenization/SentenceBoundary.hs). (*TODO*: Handling ":" and "...", and changing from `String` to `Text`)
+    * Lexer needed.
 
 ## Contribution
 

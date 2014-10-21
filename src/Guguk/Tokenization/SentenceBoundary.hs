@@ -2,7 +2,8 @@
 -- Copyright (C) 2009 Eric Kow <eric.kow@gmail.com> - MIT License
 -- Modified to work on Turkish.
 
-module Guguk.Tokenization.SentenceBoundary ( segment ) where
+-- module Guguk.Tokenization.SentenceBoundary ( segment ) where
+module Guguk.Tokenization.SentenceBoundary  where
 
 import Data.Char
 import Data.List
@@ -37,36 +38,43 @@ breakup = split
           $ oneOf stopPunctuation
 
 stopPunctuation :: [Char]
-stopPunctuation = ".?!"
-
+stopPunctuation = ".?!:"
 
 -- TODO: handle ":"
--- TODO: handle Roman numbers
 -- TODO: handle "..." usage to show omitted words
 squish :: [String] -> [String]
-squish = squishBy (\x _ -> any (`isWordSuffixOf` x) abbreviations)
+squish = squishBy (\x _ -> any (`isWordSuffixOf` x) (abbrs ++ initials))
        . squishBy (\_ y -> not (startsWithSpace y))
        . squishBy (\x _ -> looksLikeAnInitial (dropWhile isSpace x))
-       . squishBy (\x _ -> any (`isWordSuffixOf` x) (titles ++ initials))
        . squishBy (\x y -> endsWithDigit x  && startsWithDigit y)
-       . squishBy (\x _ -> endsWithDigit x) -- Turkish ordinal numbers
- where
-  looksLikeAnInitial x =
-   case reverse x of
-    ['.', i]    -> isUpper i
-    ('.':i:s:_) -> isSpace s && isUpper i
+       . squishBy (\x _ -> endsWithDigit x)          -- Turkish ordinal num.
+       . squishBy (\x _ -> all isUpper (lastWord x)) -- Uppercase Abbrv.
+
+looksLikeAnInitial :: String -> Bool
+looksLikeAnInitial x =
+  case reverse x of
+  ['.', i]    -> isUpper i
+  ('.':i:s:_) -> isSpace s && isUpper i
+  _ -> False
+
+startsW :: (t -> Bool) -> [t] -> Bool
+startsW _ [] = False
+startsW f (x:_) = f x
+
+startsWithDigit :: String -> Bool
+startsWithDigit = startsW isDigit
+
+startsWithSpace :: String -> Bool
+startsWithSpace = startsW isSpace
+
+endsWithDigit :: String -> Bool
+endsWithDigit xs =
+  case reverse xs of
+    ('.':x:_) -> isDigit x
     _ -> False
-  --
-  startsW _ [] = False
-  startsW f (x:_) = f x
-  --
-  startsWithDigit = startsW isDigit
-  startsWithSpace = startsW isSpace
-  --
-  endsWithDigit xs =
-    case reverse xs of
-     ('.':x:_) -> isDigit x
-     _ -> False
+
+lastWord :: String -> String
+lastWord = filter (not . (`elem` " .-")) . last . splitOn " "
 
 -- | This is *not* (map concat . groupBy f) because the latter
 --   just checks equality on the first element of each group.
