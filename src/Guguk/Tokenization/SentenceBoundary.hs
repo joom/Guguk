@@ -8,6 +8,7 @@ module Guguk.Tokenization.SentenceBoundary  where
 import Data.Char
 import Data.List
 import Data.List.Split
+--import qualified Data.Text as T
 
 import Guguk.Tokenization.SentenceBoundary.Ignore
 
@@ -35,10 +36,7 @@ breakup = split
           . condense       -- "huh?!"
           . dropFinalBlank -- strings that end with terminator
           . keepDelimsR    -- we want to preserve terminators
-          $ oneOf stopPunctuation
-
-stopPunctuation :: [Char]
-stopPunctuation = ".?!:"
+          $ oneOf ".?!:"   -- stop punctuation
 
 -- TODO: handle ":"
 -- TODO: handle "..." usage to show omitted words
