@@ -9,13 +9,6 @@ import qualified Guguk.TurkishAlphabet as Alph
 
 type Syllable = T.Text
 
-{-|
-  Returns Just x, where x character at index i
-       or Nothing, is i is out of bounds
--}
-charAt :: T.Text -> Int -> Maybe Char
-charAt xs i = if T.length xs > i then Just (xs `T.index` i) else Nothing
-
 -- | Java's substring.
 substring :: Int -> Int -> T.Text -> T.Text
 substring x y = T.drop x . T.take y
@@ -39,16 +32,11 @@ syllabify s
   | '\'' `elemT` T.tail s = concatMap syllabify (T.splitOn "'" s)
   -- Return the same if there is no vowel
   | isNothing firstVowelIndex = [xs]
-
-  | isNothing (afterVowel 1) = [xs]
-  | Alph.isVowel(fromJust $ afterVowel 1) = handleSubstring 1
-
-  | isNothing (afterVowel 2) = [xs]
-  | Alph.isVowel(fromJust $ afterVowel 2) = handleSubstring 1
-
-  | isNothing (afterVowel 3) = [xs]
-  | Alph.isVowel(fromJust $ afterVowel 3) = handleSubstring 2
-
+  -- now it is safe to use fVI
+  | hasVowelAt (fVI+1)         = handleSubstring 1
+  | hasVowelAt (fVI+2)         = handleSubstring 1
+  | hasVowelAt (fVI+3)         = handleSubstring 2
+  | fVI + 3 >= len             = [xs]
   | lastPart `elem` exceptions = handleSubstring 2
   | otherwise = handleSubstring 3
   where xs = (T.filter isAlpha . T.map toLower) s
@@ -57,6 +45,6 @@ syllabify s
         len = T.length xs
         lastPart = substring 2 5 xs
         exceptions = ["str", "ktr", "mtr", "nsp"]
-        afterVowel i = fromJust $ fmap (charAt xs . (+i)) firstVowelIndex
         handleSubstring n =
           substring 0 (fVI + n) xs : syllabify(substring (fVI + n) len xs)
+        hasVowelAt i = i < len && Alph.isVowel (T.index xs i)
