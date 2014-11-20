@@ -7,8 +7,8 @@ Note that this is a personal pet project, heavily influenced by the mighty [zemb
 
 ## Progress
 
-- [x] Syllabification (in [Guguk.Syllabification](src/Guguk/Syllabification.hs)) ![Progress](http://progressed.io/bar/95)
-    * Passes all the tests. The `syllabify` function can be refactored, the guard usage prevented better pattern matching.
+- [x] Syllabification (in [Guguk.Syllabification](src/Guguk/Syllabification.hs)) ![Progress](http://progressed.io/bar/100)
+    * Passes all the tests.
 - [x] Phonetics (in [Guguk.Phonetics](src/Guguk/Phonetics.hs)) ![Progress](http://progressed.io/bar/20)
     * More usable set of functions for the existing data and types is needed.
 - [x] Turkish Alphabet (in [Guguk.TurkishAlphabet](src/Guguk/TurkishAlphabet.hs)) ![Progress](http://progressed.io/bar/10)
@@ -16,7 +16,7 @@ Note that this is a personal pet project, heavily influenced by the mighty [zemb
 - [ ] Phonology (in [Guguk.Morphology.Phonology](src/Guguk/Morphology/Phonology.hs)) ![Progress](http://progressed.io/bar/10)
     * More usable set of functions for Turkish phonology and morphotactical rules.
 - [ ] Tokenization ([Guguk.Tokenization](src/Guguk/Tokenization)) ![Progress](http://progressed.io/bar/7)
-    * Basic functionality for [Sentence boundary detector](src/Guguk/Tokenization/SentenceBoundary.hs). (*TODO*: Handling ":" and "...", and changing from `String` to `Text`)
+    * Basic functionality for [Sentence boundary detector](src/Guguk/Tokenization/SentenceBoundary.hs). (*TODO*: Handling ":" and "...", and changing from `String` to `Text`) This can be rewritten using Parsec.
     * Lexer needed.
 
 ## Contribution
