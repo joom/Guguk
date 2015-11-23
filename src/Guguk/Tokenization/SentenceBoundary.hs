@@ -72,7 +72,8 @@ endsWithDigit xs =
     _ -> False
 
 lastWord :: String -> String
-lastWord = filter (not . (`elem` " .-")) . last . splitOn " "
+lastWord = filter (not . isPunc) . last . splitOn " "
+  where isPunc = (`elem` (" .-" :: String))
 
 -- | This is *not* (map concat . groupBy f) because the latter
 --   just checks equality on the first element of each group.
