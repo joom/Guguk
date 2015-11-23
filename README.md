@@ -18,6 +18,7 @@ Note that this is a personal pet project, heavily influenced by the mighty [zemb
 - [ ] Tokenization ([Guguk.Tokenization](src/Guguk/Tokenization)) ![Progress](http://progressed.io/bar/7)
     * Basic functionality for [Sentence boundary detector](src/Guguk/Tokenization/SentenceBoundary.hs). (*TODO*: Handling ":" and "...", and changing from `String` to `Text`) This can be rewritten using Parsec.
     * Lexer needed.
+- [ ] POS Tagger ([Guguk.Syntax.PosTagger](src/Guguk/Syntax/PosTagger.hs) ![Progress](http://progressed.io/bar/0)) 
 
 ## Contribution
 
