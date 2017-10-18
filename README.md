@@ -27,8 +27,7 @@ I'm very open to any pull requests, issues or other kinds of suggestions. Feedba
 ## Projects that use Guguk
 
 * [Divan.hs](http://github.com/joom/Divan.hs): Ottoman Divan poetry vezin checker
-* [Hezarfen](http://github.com/joom/Hezarfen): Ottoman Turkish to Modern Turkish transcription. (in progress)
 
 ## License
 
-[MIT License](http://joom.mit-license.org/)
+MIT License
